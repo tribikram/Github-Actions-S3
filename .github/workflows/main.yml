@@ -1,0 +1,20 @@
+name: Deploy HTML to S3 Bucket
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code from repos
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-2
+      - name: Static Code to S3 Bucket
+        run: |
+          aws s3 sync ./ s3://Github-Actions-S3/ \
+          --exclude "*" \
+          --include "index.html"
+          

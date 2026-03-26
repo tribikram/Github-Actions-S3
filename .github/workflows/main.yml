@@ -14,7 +14,7 @@ jobs:
           aws-region: us-east-2
       - name: Static Code to S3 Bucket
         run: |
-          aws s3 sync ./ s3://Github-Actions-S3/ \
+          aws s3 sync ./ s3://myfirstbucket333tri/ \
           --exclude "*" \
           --include "index.html"
           

@@ -1,1 +1,10 @@
 <h2>Something is cooking in OpenShift !!! Come again soon...</h2>
+
+<p>Page loaded at: <span id="timestamp"></span></p>
+
+<script>
+  // Get the current time
+  const now = new Date();
+  // Format it and put it into the span
+  document.getElementById('timestamp').innerHTML = now.toLocaleTimeString();
+</script>
